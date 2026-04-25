@@ -14,11 +14,11 @@ public class UpdateAppointmentRequestDto
   public DateTime AppointmentDate { get; set; }
 
   [Required]
-  [RegularExpression("^(Scheduled|Completed|Cancelled)$", ErrorMessage = "Status musi być wartością: Scheduled, Completed lub Cancelled.")]
+  [RegularExpression("^(Scheduled|Completed|Cancelled)$", ErrorMessage = "Status must be: Scheduled, Completed, or Cancelled")]
   public string Status { get; set; } = string.Empty;
 
   [Required]
-  [MaxLength(250, ErrorMessage = "Powód wizyty nie może być dłuższy niż 250 znaków.")]
+  [MaxLength(250, ErrorMessage = "Appointment reason cannot exceed 250 characters")]
   public string Reason { get; set; } = string.Empty;
 
   public string InternalNotes { get; set; } = string.Empty;

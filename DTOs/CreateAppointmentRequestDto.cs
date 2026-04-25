@@ -4,16 +4,16 @@ namespace APBD_6.DTOs;
 
 public class CreateAppointmentRequestDto
 {
-  [Required(ErrorMessage = "ID pacjenta jest wymagane.")]
+  [Required(ErrorMessage = "Patient ID is required")]
   public int IdPatient { get; set; }
 
-  [Required(ErrorMessage = "ID lekarza jest wymagane.")]
+  [Required(ErrorMessage = "Doctor ID is required")]
   public int IdDoctor { get; set; }
 
-  [Required(ErrorMessage = "Data wizyty jest wymagana.")]
+  [Required(ErrorMessage = "Appointment date is required")]
   public DateTime AppointmentDate { get; set; }
 
-  [Required(ErrorMessage = "Powód wizyty jest wymagany.")]
-  [MaxLength(250, ErrorMessage = "Powód wizyty nie może być dłuższy niż 250 znaków.")]
+  [Required(ErrorMessage = "Appointment reason is required")]
+  [MaxLength(250, ErrorMessage = "Appointment reason cannot exceed 250 characters")]
   public string Reason { get; set; } = string.Empty;
 }
