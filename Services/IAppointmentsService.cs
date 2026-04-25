@@ -4,9 +4,9 @@ namespace APBD_6.Services;
 
 public interface IAppointmentsService
 {
-  int AddAppointment();
-  void DeleteAppointment();
-  IEnumerable<AppointmentListDto> GetAllAppointments();
-  AppointmentDetailsDto GetAppointmentById(int id);
-  void UpdateAppointment(int id, CreateAppointmentRequestDto appointment);
+  public Task<IEnumerable<AppointmentListDto>> GetAllAppointmentsAsync(string? status, string? patientLastName, CancellationToken cancellationToken);
+  public Task<AppointmentDetailsDto> GetAppointmentById(int id, CancellationToken cancellationToken);
+  public Task<AppointmentDetailsDto> AddAppointment(CreateAppointmentRequestDto appointment, CancellationToken cancellationToken);
+  public Task UpdateAppointment(int id, UpdateAppointmentRequestDto appointment, CancellationToken cancellationToken);
+  public Task DeleteAppointment(int id, CancellationToken cancellationToken);
 }
