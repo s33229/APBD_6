@@ -236,7 +236,7 @@ public class AppointmentsService(IConfiguration configuration) : IAppointmentsSe
       command.Parameters.AddWithValue("@Status", status);
       command.Parameters.AddWithValue("@CreatedAt", createdAt);
 
-      var appointmentId = await command.ExecuteScalarAsync(cancellationToken);
+      var appointmentId = await command.ExecuteNonQueryAsync(cancellationToken);
       command.Parameters.Clear();
 
       await transaction.CommitAsync(cancellationToken);
@@ -298,7 +298,7 @@ public class AppointmentsService(IConfiguration configuration) : IAppointmentsSe
       command.CommandText = "DELETE FROM Appointments WHERE IdAppointment = @IdAppointment";
       command.Parameters.AddWithValue("@IdAppointment", id);
 
-      var appointmentId = await command.ExecuteScalarAsync(cancellationToken);
+      var appointmentId = await command.ExecuteNonQueryAsync(cancellationToken);
       command.Parameters.Clear();
 
       await transaction.CommitAsync(cancellationToken);
@@ -422,7 +422,7 @@ public class AppointmentsService(IConfiguration configuration) : IAppointmentsSe
       command.Parameters.AddWithValue("@InternalNotes", appointment.InternalNotes);
       command.Parameters.AddWithValue("@IdAppointment", id);
 
-      var appointmentId = await command.ExecuteScalarAsync(cancellationToken);
+      var appointmentId = await command.ExecuteNonQueryAsync(cancellationToken);
       command.Parameters.Clear();
 
       await transaction.CommitAsync(cancellationToken);
